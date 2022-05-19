@@ -72,3 +72,40 @@ describe('user language', () => {
         expect(language).toBe(expectedLanguage);
     });
 });
+
+
+describe('set email', () => {
+
+    let user
+    beforeEach(() => {
+        let id = 1;
+        let username = "gonzalo";
+        let email = "gonzalo.arzeno@gmail.com";
+        let country = "BR";
+        user = new User(id, username, email, country);
+    });
+    
+    test('update', () => {
+        //Arrange
+        let newMail = "pepito.flores@gmail.com";
+        
+        //Act
+        let updated = user.setEmail(newMail);
+
+        //Assert
+        expect(user.email).toBe(newMail);
+        expect(updated).toBe(true);
+    });
+  
+    test('not update', () => {
+     //Arrange
+     let oldMail = "gonzalo.arzeno@gmail.com";
+        
+     //Act
+     let updated = user.setEmail(oldMail);
+
+     //Assert
+     expect(user.email).toBe(oldMail);
+     expect(updated).toBe(false);
+    });
+});
