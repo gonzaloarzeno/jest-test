@@ -70,5 +70,5 @@ describe('user language', () => {
   
         //Assert
         expect(language).toBe(expectedLanguage);
-      });
+    });
 });

@@ -8,14 +8,18 @@ class User {
     }
 
     getLanguage() {
-        if(this.country === "BR") {
+        if (this.country === "BR") {
             return "PR";
         }
         return "ES";
     }
 
     setEmail(newEmail) {
-        this.email = newEmail;
+        if (newEmail !== this.email) {
+            this.email = newEmail;
+            return true;
+        }
+        return false;
     }
 }
 
